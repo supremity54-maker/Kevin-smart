@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Application</title>
+    <link rel="stylesheet" href="todo-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📝 My To-Do List</h1>
+            <p class="subtitle">Stay organized and productive</p>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="todoInput" 
+                    class="todo-input" 
+                    placeholder="Add a new task..."
+                    autocomplete="off"
+                >
+                <button id="addBtn" class="add-btn">+ Add</button>
+            </div>
+            <div class="quick-categories">
+                <button class="category-btn" data-category="all">All</button>
+                <button class="category-btn" data-category="work">Work</button>
+                <button class="category-btn" data-category="personal">Personal</button>
+                <button class="category-btn" data-category="shopping">Shopping</button>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Total:</span>
+                <span class="stat-value" id="totalTasks">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Completed:</span>
+                <span class="stat-value" id="completedTasks">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Pending:</span>
+                <span class="stat-value" id="pendingTasks">0</span>
+            </div>
+        </div>
+
+        <!-- Filter Options -->
+        <div class="filter-section">
+            <button id="filterAll" class="filter-btn active">All Tasks</button>
+            <button id="filterActive" class="filter-btn">Active</button>
+            <button id="filterCompleted" class="filter-btn">Completed</button>
+            <button id="sortBtn" class="filter-btn">↕️ Sort</button>
+            <button id="clearBtn" class="filter-btn danger">🗑️ Clear All</button>
+        </div>
+
+        <!-- Tasks List -->
+        <div class="tasks-container">
+            <ul id="todoList" class="todo-list">
+                <!-- Tasks will be added here -->
+            </ul>
+            <div id="emptyState" class="empty-state">
+                <p>📭 No tasks yet. Add one to get started!</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>✨ Tasks are automatically saved to your browser</p>
+        </div>
+    </div>
+
+    <!-- Modal for Edit -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Task</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editInput" class="edit-input" placeholder="Edit your task...">
+                <div class="modal-categories">
+                    <label class="category-label">
+                        <input type="radio" name="category" value="work" class="category-input"> Work
+                    </label>
+                    <label class="category-label">
+                        <input type="radio" name="category" value="personal" class="category-input"> Personal
+                    </label>
+                    <label class="category-label">
+                        <input type="radio" name="category" value="shopping" class="category-input"> Shopping
+                    </label>
+                    <label class="category-label">
+                        <input type="radio" name="category" value="other" class="category-input"> Other
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelEdit" class="btn btn-secondary">Cancel</button>
+                <button id="saveEdit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="todo-script.js"></script>
+</body>
+</html>
