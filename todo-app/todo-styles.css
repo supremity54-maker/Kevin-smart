@@ -1,5 +1,5 @@
 /* ============================================
-   TO-DO LIST APPLICATION - STYLES
+   KOECH INSIGHTS 5 - TASK MANAGER STYLES
    ============================================ */
 
 * {
@@ -10,17 +10,17 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #ff9500 100%);
     min-height: 100vh;
     padding: 20px;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
 
@@ -29,20 +29,34 @@ body {
    ============================================ */
 
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     color: white;
     padding: 30px 20px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-content {
+    flex: 1;
 }
 
 .header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .subtitle {
-    font-size: 0.95rem;
-    opacity: 0.9;
+    font-size: 0.9rem;
+    opacity: 0.95;
+    color: #e0e7ff;
+}
+
+.header-logo {
+    font-size: 3rem;
 }
 
 /* ============================================
@@ -51,7 +65,7 @@ body {
 
 .input-section {
     padding: 25px 20px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 2px solid #f0f0f0;
 }
 
 .input-wrapper {
@@ -71,25 +85,26 @@ body {
 
 .todo-input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .add-btn {
     padding: 12px 25px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #ff9500 100%);
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .add-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
 .add-btn:active {
@@ -104,24 +119,26 @@ body {
 }
 
 .category-btn {
-    padding: 6px 12px;
-    background: #f0f0f0;
+    padding: 7px 14px;
+    background: #f5f5f5;
     border: 2px solid #e0e0e0;
     border-radius: 20px;
     cursor: pointer;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .category-btn:hover {
-    border-color: #667eea;
-    background: #f5f5ff;
+    border-color: #2563eb;
+    background: #eff6ff;
+    color: #2563eb;
 }
 
 .category-btn.active {
-    background: #667eea;
+    background: #2563eb;
     color: white;
-    border-color: #667eea;
+    border-color: #2563eb;
 }
 
 /* ============================================
@@ -130,30 +147,42 @@ body {
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     padding: 20px;
-    background: #f9f9f9;
-    border-bottom: 1px solid #e0e0e0;
+    background: linear-gradient(135deg, #f0f9ff 0%, #fef3c7 100%);
+    border-bottom: 2px solid #f0f0f0;
 }
 
 .stat-item {
-    text-align: center;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .stat-label {
-    display: block;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #666;
-    margin-bottom: 5px;
+    font-weight: 500;
 }
 
 .stat-value {
-    display: block;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    color: #667eea;
+    color: #2563eb;
 }
 
 /* ============================================
@@ -164,7 +193,14 @@ body {
     display: flex;
     gap: 10px;
     padding: 15px 20px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 2px solid #f0f0f0;
+    flex-wrap: wrap;
+}
+
+.filter-buttons,
+.filter-actions {
+    display: flex;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
@@ -176,26 +212,28 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .filter-btn:hover {
-    border-color: #667eea;
-    color: #667eea;
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #f0f9ff;
 }
 
 .filter-btn.active {
-    background: #667eea;
+    background: #2563eb;
     color: white;
-    border-color: #667eea;
+    border-color: #2563eb;
 }
 
 .filter-btn.danger {
-    color: #ff6b6b;
-    border-color: #ff6b6b;
+    color: #ef4444;
+    border-color: #ef4444;
 }
 
 .filter-btn.danger:hover {
-    background: #ff6b6b;
+    background: #ef4444;
     color: white;
 }
 
@@ -220,8 +258,8 @@ body {
     padding: 15px;
     background: white;
     border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
     transition: all 0.3s ease;
     animation: slideIn 0.3s ease;
 }
@@ -238,13 +276,14 @@ body {
 }
 
 .todo-item:hover {
-    border-color: #667eea;
-    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+    border-color: #2563eb;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
+    transform: translateY(-2px);
 }
 
 .todo-item.completed {
-    background: #f0f0f0;
-    border-color: #d0d0d0;
+    background: #f9fafb;
+    border-color: #d1d5db;
 }
 
 .todo-item.completed .todo-text {
@@ -257,7 +296,7 @@ body {
     width: 24px;
     height: 24px;
     cursor: pointer;
-    accent-color: #667eea;
+    accent-color: #2563eb;
     flex-shrink: 0;
 }
 
@@ -271,7 +310,8 @@ body {
     font-size: 1rem;
     color: #333;
     word-break: break-word;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    font-weight: 500;
 }
 
 .todo-meta {
@@ -279,6 +319,7 @@ body {
     gap: 10px;
     font-size: 0.8rem;
     color: #999;
+    flex-wrap: wrap;
 }
 
 .todo-date {
@@ -287,12 +328,12 @@ body {
 
 .todo-category {
     display: inline-block;
-    padding: 2px 8px;
+    padding: 3px 10px;
     background: #f0f0f0;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: 600;
-    color: #667eea;
+    color: #2563eb;
 }
 
 .todo-category.work {
@@ -310,9 +351,9 @@ body {
     color: #4caf50;
 }
 
-.todo-category.other {
-    background: #e3f2fd;
-    color: #2196f3;
+.todo-category.health {
+    background: #ffe0b2;
+    color: #ff6f00;
 }
 
 /* Actions */
@@ -323,14 +364,15 @@ body {
 }
 
 .action-btn {
-    padding: 6px 10px;
+    padding: 6px 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 0.85rem;
     transition: all 0.3s ease;
     background: #f0f0f0;
     color: #666;
+    font-weight: 500;
 }
 
 .action-btn:hover {
@@ -339,12 +381,12 @@ body {
 }
 
 .action-btn.edit:hover {
-    background: #667eea;
+    background: #2563eb;
     color: white;
 }
 
 .action-btn.delete:hover {
-    background: #ff6b6b;
+    background: #ef4444;
     color: white;
 }
 
@@ -354,7 +396,25 @@ body {
     text-align: center;
     padding: 60px 20px;
     color: #999;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.empty-state p {
     font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.empty-state small {
+    display: block;
+    color: #999;
+    font-size: 0.9rem;
 }
 
 .empty-state.show {
@@ -367,11 +427,22 @@ body {
 
 .footer {
     text-align: center;
-    padding: 15px 20px;
-    background: #f9f9f9;
-    color: #999;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #fef3c7 100%);
+    color: #333;
     font-size: 0.9rem;
-    border-top: 1px solid #e0e0e0;
+    border-top: 2px solid #e0e0e0;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.footer-sub {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 8px 0 0 0;
 }
 
 /* ============================================
@@ -407,10 +478,10 @@ body {
 
 .modal-content {
     background: white;
-    border-radius: 10px;
+    border-radius: 12px;
     width: 90%;
-    max-width: 400px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.3s ease;
 }
 
@@ -430,18 +501,19 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 2px solid #f0f0f0;
 }
 
 .modal-header h2 {
     margin: 0;
     color: #333;
+    font-size: 1.3rem;
 }
 
 .close-btn {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
     color: #999;
     transition: color 0.3s ease;
@@ -455,19 +527,31 @@ body {
     padding: 20px;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
 .edit-input {
     width: 100%;
     padding: 12px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 1rem;
-    margin-bottom: 15px;
+    transition: all 0.3s ease;
 }
 
 .edit-input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .modal-categories {
@@ -480,16 +564,17 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 10px;
+    padding: 10px 12px;
     border: 2px solid #e0e0e0;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .category-label:hover {
-    border-color: #667eea;
-    background: #f5f5ff;
+    border-color: #2563eb;
+    background: #f0f9ff;
 }
 
 .category-label input[type="radio"] {
@@ -500,28 +585,28 @@ body {
     display: flex;
     gap: 10px;
     padding: 20px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 2px solid #f0f0f0;
 }
 
 .btn {
     flex: 1;
-    padding: 10px 20px;
+    padding: 11px 20px;
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #ff9500 100%);
     color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
 .btn-secondary {
@@ -539,8 +624,17 @@ body {
    ============================================ */
 
 @media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
     .header h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .header-logo {
+        font-size: 2.5rem;
     }
 
     .input-wrapper {
@@ -552,16 +646,25 @@ body {
     }
 
     .stats {
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-item {
+        padding: 10px;
     }
 
     .filter-section {
         gap: 8px;
     }
 
+    .filter-buttons,
+    .filter-actions {
+        width: 100%;
+    }
+
     .filter-btn {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         padding: 6px 12px;
         flex: 1;
         min-width: 70px;
@@ -574,7 +677,7 @@ body {
 
     .todo-actions {
         width: 100%;
-        gap: 10px;
+        gap: 8px;
     }
 
     .action-btn {
@@ -584,11 +687,19 @@ body {
     .modal-content {
         width: 95%;
     }
+
+    .modal-categories {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 400px) {
     .container {
-        border-radius: 0;
+        border-radius: 10px;
+    }
+
+    .header h1 {
+        font-size: 1.2rem;
     }
 
     .filter-btn {
@@ -603,5 +714,10 @@ body {
     .category-btn {
         font-size: 0.8rem;
         padding: 5px 10px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 }

@@ -1,12 +1,12 @@
 // ============================================
-// TO-DO LIST APPLICATION - JAVASCRIPT
+// KOECH INSIGHTS 5 - TASK MANAGER
 // ============================================
 
 // Initialize the app
 let todos = [];
 let currentFilter = 'all';
 let editingId = null;
-const STORAGE_KEY = 'koechInsights_todos';
+const STORAGE_KEY = 'koechInsights5_tasks';
 
 // DOM Elements
 const todoInput = document.getElementById('todoInput');
@@ -21,6 +21,7 @@ const clearBtn = document.getElementById('clearBtn');
 const totalTasksSpan = document.getElementById('totalTasks');
 const completedTasksSpan = document.getElementById('completedTasks');
 const pendingTasksSpan = document.getElementById('pendingTasks');
+const progressPercentSpan = document.getElementById('progressPercent');
 const modal = document.getElementById('editModal');
 const editInput = document.getElementById('editInput');
 const saveEditBtn = document.getElementById('saveEdit');
@@ -50,7 +51,6 @@ document.querySelectorAll('.quick-categories .category-btn').forEach(btn => {
         if (category !== 'all') {
             todoInput.value = '';
             todoInput.focus();
-            // Could filter by category here if needed
         }
     });
 });
@@ -82,8 +82,8 @@ function addTodo() {
         return;
     }
 
-    if (text.length > 100) {
-        alert('Task is too long! Maximum 100 characters.');
+    if (text.length > 120) {
+        alert('Task is too long! Maximum 120 characters.');
         return;
     }
 
@@ -91,7 +91,7 @@ function addTodo() {
         id: Date.now(),
         text: text,
         completed: false,
-        category: 'other',
+        category: 'personal',
         createdAt: new Date().toLocaleDateString(),
         completedAt: null
     };
@@ -132,9 +132,11 @@ function openEditModal(id) {
     const todo = todos.find(t => t.id === id);
     if (todo) {
         editInput.value = todo.text;
-        document.querySelector(`input[value="${todo.category}"]`).checked = true;
+        const categoryInput = document.querySelector(`input[value="${todo.category}"]`);
+        if (categoryInput) categoryInput.checked = true;
         modal.classList.add('show');
         editInput.focus();
+        editInput.select();
     }
 }
 
@@ -155,8 +157,8 @@ function saveEdit() {
         return;
     }
 
-    if (newText.length > 100) {
-        alert('Task is too long! Maximum 100 characters.');
+    if (newText.length > 120) {
+        alert('Task is too long! Maximum 120 characters.');
         return;
     }
 
@@ -238,8 +240,8 @@ function renderTodos() {
                 <div class="todo-text">${escapeHtml(todo.text)}</div>
                 <div class="todo-meta">
                     <span class="todo-date">📅 ${todo.createdAt}</span>
-                    <span class="todo-category ${todo.category}">${capitalizeFirst(todo.category)}</span>
-                    ${todo.completedAt ? `<span class="todo-date">✅ Completed: ${todo.completedAt}</span>` : ''}
+                    <span class="todo-category ${todo.category}">${getCategoryIcon(todo.category)} ${capitalizeFirst(todo.category)}</span>
+                    ${todo.completedAt ? `<span class="todo-date">✅ ${todo.completedAt}</span>` : ''}
                 </div>
             </div>
             <div class="todo-actions">
@@ -256,10 +258,12 @@ function updateStats() {
     const total = todos.length;
     const completed = todos.filter(t => t.completed).length;
     const pending = total - completed;
+    const progress = total === 0 ? 0 : Math.round((completed / total) * 100);
 
     totalTasksSpan.textContent = total;
     completedTasksSpan.textContent = completed;
     pendingTasksSpan.textContent = pending;
+    progressPercentSpan.textContent = progress + '%';
 }
 
 // Save todos to local storage
@@ -295,6 +299,17 @@ function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+function getCategoryIcon(category) {
+    const icons = {
+        work: '💼',
+        personal: '👤',
+        shopping: '🛍️',
+        health: '💪'
+    };
+    return icons[category] || '📌';
+}
+
 // Log to console
-console.log('✅ To-Do List Application Loaded Successfully');
-console.log('📝 All tasks are saved to your browser\'s local storage');
+console.log('🎯 Koech Insights 5 - Task Manager Loaded');
+console.log('✅ All tasks are saved to your browser automatically');
+console.log('📊 Version: 1.0.0');
